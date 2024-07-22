@@ -152,11 +152,11 @@ export default function HomePage() {
     {
       name: "Kohinoor Fashion Studio",
       link: "",
-      position: "Full-Stack Web Developer",
+      position: "Software Developer",
       date: "2022 Jan - 2022 Apr",
       location: "Toronto, ON",
       description:
-        "Worked as a Full-Stack web developer in charge of making a web-app for displaying businesses products and information",
+        "Worked as a Full-Stack web developer in charge of making a web app for displaying businesses products and information",
     },
   ] satisfies WorkExperienceItem[];
 
