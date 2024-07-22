@@ -1,113 +1,256 @@
-import Image from "next/image";
-
-export default function Home() {
+function UpRightArrowIcon() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-5 w-5"
+    >
+      <path d="M7 7h10v10" />
+      <path d="M7 17 17 7" />
+    </svg>
+  );
+}
+
+function WorkIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-5 w-5"
+    >
+      <path d="M12 12h.01" />
+      <path d="M16 6V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2" />
+      <path d="M22 13a18.15 18.15 0 0 1-20 0" />
+      <rect width="20" height="14" x="2" y="6" rx="2" />
+    </svg>
+  );
+}
+
+function LocationIcon() {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-5 w-5"
+    >
+      <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+      <circle cx="12" cy="10" r="3" />
+    </svg>
+  );
+}
+
+type WorkExperienceItem = {
+  name: string;
+  link: string;
+  position: string;
+  location: string;
+  date: string;
+  description: string;
+};
+
+type ExperienceItem = {
+  name: string;
+  link: string;
+  position: string;
+  description: string;
+};
+
+function ExperienceSection({
+  title,
+  items,
+}: {
+  title: string;
+  items: ExperienceItem[];
+}) {
+  return (
+    <section className="text-left">
+      <h3 className="mb-6 text-xl font-medium">{title}</h3>
+      {items.map((item, index) => (
+        <div key={index}>
           <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
+            href={item.link}
             target="_blank"
-            rel="noopener noreferrer"
+            className="font-medium underline decoration-neutral-400 decoration-[0.1em] underline-offset-2 dark:decoration-neutral-600"
           >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
+            {item.name}
           </a>
+          <p className="mt-2">{item.position}</p>
+          <p className="mt-2 text-neutral-700 dark:text-neutral-300">
+            {item.description}
+          </p>
+          {index !== items.length - 1 && <div className="mt-6"></div>}
+        </div>
+      ))}
+    </section>
+  );
+}
+
+function WorkExperienceSection({
+  title,
+  items,
+}: {
+  title: string;
+  items: WorkExperienceItem[];
+}) {
+  return (
+    <section className="text-left">
+      <h3 className="mb-6 text-xl font-medium">{title}</h3>
+      {items.map((item, index) => (
+        <div key={index}>
+          <a
+            href={item.link}
+            target="_blank"
+            className="font-medium underline decoration-neutral-400 decoration-[0.1em] underline-offset-2 dark:decoration-neutral-600"
+          >
+            {item.name}
+          </a>
+          <p className="mt-2">{item.position}</p>
+          <p className="mt-1 italic">{item.location}</p>
+          <p className="italic">{item.date}</p>
+          <p className="mt-2 text-neutral-700 dark:text-neutral-300">
+            {item.description}
+          </p>
+          {index !== items.length - 1 && <div className="mt-6"></div>}
+        </div>
+      ))}
+    </section>
+  );
+}
+
+export default function HomePage() {
+  const workItems = [
+    {
+      name: "Yamaha Motors Canada",
+      link: "https://www.yamaha-motor.ca/en/homepage",
+      position: "Software Developer",
+      date: "2022 May - 2022 Aug",
+      location: "Toronto, ON",
+      description:
+        "Worked under the accesories team in creating web scrapping & data validaton applications and internal utility tools",
+    },
+    {
+      name: "Kohinoor Fashion Studio",
+      link: "",
+      position: "Full-Stack Web Developer",
+      date: "2022 Jan - 2022 Apr",
+      location: "Toronto, ON",
+      description:
+        "Worked as a Full-Stack web developer in charge of making a web-app for displaying businesses products and information",
+    },
+  ] satisfies WorkExperienceItem[];
+
+  const projectItems = [
+    {
+      name: "",
+      link: "",
+      position: "",
+      description: "",
+    },
+    {
+      name: "",
+      link: "",
+      position: "",
+      description: "",
+    },
+    {
+      name: "all projects →",
+      link: "https://github.com/ta-02",
+      position: "",
+      description: "",
+    },
+  ] satisfies ExperienceItem[];
+
+  return (
+    <main className="text-left">
+      <h1 className="mb-4 text-2xl font-medium tracking-tighter">
+        Talal Ahmad
+      </h1>
+
+      <div className="mb-4 flex flex-col gap-1">
+        <div className="flex items-center gap-2 text-neutral-700 dark:text-neutral-300">
+          <LocationIcon />
+          <p>Toronto, Ontario</p>
+        </div>
+
+        <div className="flex items-center gap-2 text-neutral-700 dark:text-neutral-300">
+          <WorkIcon />
+          <p className="inline-flex">CS + BBA @WLU</p>
         </div>
       </div>
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <p className="prose prose-neutral dark:prose-invert">
+        Hello, I&apos;m <span className="italic">Talal</span>. I&apos;m a third
+        year CS & BBA student at Wilfrid Laurier. I enjoy building{" "}
+        <span className="italic">
+          sites, apps, cli tools, & anything terminal related
+        </span>
+        . <span className="italic">When I&apos;m not coding</span>, you will
+        probably catch me configuring my dotfiles, or hunting for the next steal
+        on vintage clothes.
+      </p>
+
+      <div className="my-8 grid grid-cols-1 gap-8 md:grid-cols-2">
+        <WorkExperienceSection title="Work" items={workItems} />
+        <ExperienceSection title="Projects" items={projectItems} />
       </div>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
+      <h3 className="mt-8 text-xl font-medium">Links</h3>
+      <ul className="font-sm mt-4 flex flex-col space-x-0 space-y-2 text-neutral-600 md:flex-row md:space-x-4 md:space-y-0 dark:text-neutral-300">
+        <li>
+          <a
+            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
+            rel="noopener noreferrer"
+            target="_blank"
+            href="mailto:talal.gl2004@gmail.com"
+          >
+            <p className="mr-1 h-7">email</p>
+            <UpRightArrowIcon />
+          </a>
+        </li>
+        <li>
+          <a
+            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://github.com/ta-02"
+          >
+            <p className="mr-1 h-7">github</p>
+            <UpRightArrowIcon />
+          </a>
+        </li>
+        <li>
+          <a
+            className="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://www.linkedin.com/in/talal--ahmad/"
+          >
+            <p className="mr-1 h-7">linkedin</p>
+            <UpRightArrowIcon />
+          </a>
+        </li>
+      </ul>
     </main>
   );
 }
