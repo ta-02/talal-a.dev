@@ -206,8 +206,8 @@ export default function HomePage() {
           sites, apps, cli tools, & anything terminal related
         </span>
         . <span className="italic">When I&apos;m not coding</span>, you will
-        probably catch me configuring my dotfiles, or hunting for the next steal
-        on vintage clothes.
+        probably catch me listening to music, or hunting for the next steal on
+        vintage clothes.
       </p>
 
       <div className="my-8 grid grid-cols-1 gap-8 md:grid-cols-2">
