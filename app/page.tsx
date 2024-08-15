@@ -144,7 +144,7 @@ export default function HomePage() {
       name: "Yamaha Motors Canada",
       link: "https://www.yamaha-motor.ca/en/homepage",
       position: "Software Developer",
-      date: "2022 May - 2022 Aug",
+      date: "2024 May - 2024 Aug",
       location: "Toronto, ON",
       description:
         "Worked under the accesories team in creating web scrapping & data validaton applications and internal utility tools",
@@ -153,7 +153,7 @@ export default function HomePage() {
       name: "Kohinoor Fashion Studio",
       link: "",
       position: "Software Developer",
-      date: "2022 Jan - 2022 Apr",
+      date: "2024 Jan - 2024 Apr",
       location: "Toronto, ON",
       description:
         "Worked as a Full-Stack web developer in charge of making a web app for displaying businesses products and information",
