@@ -162,16 +162,25 @@ export default function HomePage() {
 
   const projectItems = [
     {
-      name: "",
-      link: "",
-      position: "",
-      description: "",
+      name: "Expensify",
+      link: "https://github.com/ta-02/Expensify",
+      position: "Creator and maintainer",
+      description:
+        "full-stack expense tracking application that allows users to manage their expenses easily.",
     },
     {
-      name: "",
-      link: "",
-      position: "",
-      description: "",
+      name: "texdle",
+      link: "https://github.com/ta-02/texdle",
+      position: "Creator and maintainer",
+      description:
+        "A wordle clone made with React, TypeScript, TailwindCSS, Vite and Zustand.",
+    },
+    {
+      name: "Apple Music CLI App",
+      link: "https://github.com/ta-02/appleMusic-cli-player",
+      position: "Creator and maintainer",
+      description:
+        "Command-line interface (CLI) tool designed to control music playback on Apple Music.",
     },
     {
       name: "all projects →",
@@ -203,11 +212,11 @@ export default function HomePage() {
         Hello, I&apos;m <span className="italic">Talal</span>. I&apos;m a third
         year CS & BBA student at Wilfrid Laurier. I enjoy building{" "}
         <span className="italic">
-          sites, apps, cli tools, & anything terminal related
+          sites, apps, cli tools, & anything in the terminal
         </span>
         . <span className="italic">When I&apos;m not coding</span>, you will
         probably catch me listening to music, or hunting for the next steal on
-        vintage clothes.
+        vintage clothing.
       </p>
 
       <div className="my-8 grid grid-cols-1 gap-8 md:grid-cols-2">
