@@ -169,18 +169,18 @@ export default function HomePage() {
         "full-stack expense tracking application that allows users to manage their expenses easily.",
     },
     {
+      name: "Monkeylang interpreter",
+      link: "https://github.com/ta-02/monkeylang-interpreter",
+      position: "Creator and maintainer",
+      description:
+        "A interpreter for a javascript like language written in Go.",
+    },
+    {
       name: "texdle",
       link: "https://github.com/ta-02/texdle",
       position: "Creator and maintainer",
       description:
         "A wordle clone made with React, TypeScript, TailwindCSS, Vite and Zustand.",
-    },
-    {
-      name: "Apple Music CLI App",
-      link: "https://github.com/ta-02/appleMusic-cli-player",
-      position: "Creator and maintainer",
-      description:
-        "Command-line interface (CLI) tool designed to control music playback on Apple Music.",
     },
     {
       name: "all projects →",
